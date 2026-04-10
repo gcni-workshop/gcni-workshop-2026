@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IWQOS 2026 Workshop on Generative Cloud-Network Infrastructure (GCNI)</title>
+  <style>
+    :root {
+      --bg: #edf2f6;
+      --header-bg: #3d6281;
+      --header-bg-2: #4b718f;
+      --nav-bg: #587a98;
+      --section-bg: #ffffff;
+      --section-alt: #f7fafc;
+      --border: #d4dee8;
+
+      --text: #24313d;
+      --text-soft: #43576a;
+      --muted: #607486;
+      --heading: #182632;
+
+      --link: #2c5f8c;
+      --link-hover: #1f496e;
+
+      --white: #ffffff;
+      --max-width: 1040px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.62;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--link-hover);
+      text-decoration: underline;
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(180deg, var(--header-bg) 0%, var(--header-bg-2) 100%);
+      color: var(--white);
+      border-bottom: 1px solid rgba(255,255,255,0.16);
+      box-shadow: inset 0 -1px 0 rgba(255,255,255,0.08);
+    }
+
+    .header-inner {
+      padding: 34px 0 28px;
+    }
+
+    .header-kicker {
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      color: #eef5fb;
+      margin-bottom: 8px;
+    }
+
+    .header-series {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: #f4f8fc;
+      margin-bottom: 6px;
+    }
+
+    header h1 {
+      margin: 0 0 10px;
+      font-size: 2.08rem;
+      line-height: 1.26;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: #ffffff;
+      max-width: 920px;
+    }
+
+    .header-subtitle {
+      max-width: 900px;
+      font-size: 0.99rem;
+      line-height: 1.58;
+      color: #edf4fa;
+    }
+
+    nav {
+      background: var(--nav-bg);
+      border-bottom: 1px solid rgba(255,255,255,0.14);
+    }
+
+    .nav-inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 0.94rem;
+      letter-spacing: 0.1px;
+    }
+
+    nav a:hover {
+      text-decoration: none;
+      opacity: 0.92;
+    }
+
+    main {
+      padding: 24px 0 40px;
+    }
+
+    section {
+      background: var(--section-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px 22px;
+      margin-bottom: 18px;
+      box-shadow: 0 1px 2px rgba(20, 34, 48, 0.04);
+    }
+
+    section.alt {
+      background: var(--section-alt);
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      padding-bottom: 7px;
+      border-bottom: 2px solid #e6edf3;
+      color: var(--heading);
+      font-size: 1.38rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    h3 {
+      margin: 16px 0 8px;
+      color: var(--heading);
+      font-size: 1.03rem;
+      font-weight: 700;
+    }
+
+    p {
+      margin: 0 0 11px;
+      text-align: justify;
+      color: var(--text);
+      font-size: 0.97rem;
+      line-height: 1.62;
+    }
+
+    ul {
+      margin: 6px 0 0 20px;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 6px;
+      color: var(--text);
+      font-size: 0.97rem;
+      line-height: 1.58;
+    }
+
+    .topics-list {
+      margin-top: 8px;
+    }
+
+    .dates-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 4px;
+    }
+
+    .dates-table tr {
+      border-bottom: 1px solid #dde6ee;
+    }
+
+    .dates-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .dates-table td {
+      padding: 10px 6px;
+      vertical-align: top;
+      color: var(--text);
+      font-size: 0.97rem;
+      line-height: 1.55;
+    }
+
+    .dates-table td:first-child {
+      width: 250px;
+      font-weight: 700;
+      color: var(--heading);
+    }
+
+    .submission-note {
+      margin-top: 14px;
+      padding: 12px 14px;
+      background: #eef4f8;
+      border-left: 4px solid #7898b2;
+      color: var(--text-soft);
+      border-radius: 2px;
+      font-size: 0.96rem;
+      line-height: 1.56;
+    }
+
+    .organizer-block {
+      margin-top: 4px;
+      padding-top: 2px;
+    }
+
+    .chair-bullet-list {
+      margin: 8px 0 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .chair-bullet-list li {
+      position: relative;
+      margin: 0 0 6px 0;
+      padding-left: 18px;
+      color: var(--text);
+      font-size: 0.97rem;
+      line-height: 1.58;
+    }
+
+    .chair-bullet-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0.02em;
+      font-size: 1.15rem;
+      color: var(--heading);
+      line-height: 1;
+    }
+
+    .chair-bullet-list strong {
+      color: var(--heading);
+      font-weight: 700;
+    }
+
+    .tpc-box {
+      margin-top: 8px;
+      padding: 12px 14px;
+      background: #fbfcfe;
+      border: 1px solid #dbe5ee;
+      border-radius: 6px;
+      color: var(--text-soft);
+      font-size: 0.96rem;
+      line-height: 1.56;
+    }
+
+    footer {
+      background: #dde7ef;
+      border-top: 1px solid #ccd9e4;
+      color: #476073;
+      text-align: center;
+      padding: 18px 0 22px;
+      font-size: 0.93rem;
+    }
+
+    footer p {
+      margin: 4px 0;
+      text-align: center;
+      color: #476073;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 640px) {
+      .header-inner {
+        padding: 26px 0 22px;
+      }
+
+      header h1 {
+        font-size: 1.7rem;
+      }
+
+      .header-subtitle {
+        font-size: 0.96rem;
+      }
+
+      .nav-inner {
+        gap: 14px;
+      }
+
+      section {
+        padding: 20px 16px;
+      }
+
+      .dates-table td {
+        display: block;
+        width: 100%;
+        padding: 6px 0;
+      }
+
+      .dates-table tr {
+        display: block;
+        padding: 8px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container header-inner">
+      <div class="header-kicker">Call for Papers</div>
+      <h1>IWQOS 2026 Workshop on Generative Cloud-Network Infrastructure (GCNI)</h1>
+    </div>
+  </header>
+
+
+  <main class="container">
+
+    <section id="overview">
+      <h2>Workshop Overview</h2>
+      <p>
+        Information networks are becoming increasingly integrated into all sectors of the economy and society. Meanwhile, emerging applications are imposing stringent requirements on latency, synchronization, transmission reliability, and service flexibility. Traditional approaches based on incremental network upgrades and the isolated evolution of standalone network systems are no longer sufficient to meet the diverse and complex demands of modern vertical industries.
+      </p>
+      <p>
+        Driven by the rapid development of AI for Science (AI4S), there is a growing need for a new infrastructure paradigm that can bridge unified infrastructure design and diversified application requirements. Generative Cloud-Network Infrastructure (GCNI) is envisioned as a promising foundation for this goal. It aims to support the deep convergence of networking, computing, storage, and sensing, while enabling more intelligent, flexible, and trustworthy cloud-network services.
+      </p>
+      <p>
+        GCNI raises important research challenges across multiple dimensions, including coordinated transmission and control in space-air-ground integrated networks, application-oriented network construction through the convergence of multidimensional cloud resources, and robust mechanisms for secure and trustworthy network environments. It also opens new opportunities for intelligent orchestration of forwarding, computing, and storage resources, as well as for communication-sensing integration across heterogeneous network systems.
+      </p>
+      <p>
+        The GCNI workshop offers two key benefits to attendees. First, it provides an accessible introduction to this emerging and dynamic research field, broadening its reach to a wider audience. Second, it serves as a platform for the research community to discuss pressing challenges, explore new opportunities, and shape future directions in GCNI research.
+      </p>
+      <p>
+        This workshop invites submissions on the fundamental theory, design principles, implementations, industrial applications, and operational insights of GCNI. In addition to regular paper presentations, the program will also feature keynote talks from leading researchers to highlight recent advances and stimulate discussion on future research directions.
+      </p>
+    </section>
+
+    <section id="topics" class="alt">
+      <h2>Topics of Interest</h2>
+      <p>
+        We welcome submissions on all aspects of GCNI. Technical topics of interest include but are not limited to the following:
+      </p>
+      <ul class="topics-list">
+        <li>Fundamental theory and models for GCNI</li>
+        <li>Generative cloud-network architectures</li>
+        <li>Resource orchestration and scheduling</li>
+        <li>Queue scheduling and buffer management</li>
+        <li>Table lookup, addressing, and routing</li>
+        <li>Formal verification and dependable network design</li>
+        <li>Congestion control and traffic engineering</li>
+        <li>Multi-domain access and coordination</li>
+        <li>Network monitoring, measurement, and diagnosis</li>
+        <li>Communication-sensing integration</li>
+        <li>Space-air-ground integrated networking</li>
+        <li>Security, privacy, and trustworthiness</li>
+        <li>Energy-efficient and sustainable network systems</li>
+        <li>System implementation, prototyping, and testing</li>
+        <li>Industrial applications and operational experiences</li>
+        <li>Application scenarios of GCNI</li>
+      </ul>
+    </section>
+
+    <section id="dates">
+      <h2>Important Dates</h2>
+      <table class="dates-table">
+        <tr>
+          <td>Paper submission deadline</td>
+          <td>May 5, 2026</td>
+        </tr>
+        <tr>
+          <td>Paper acceptance notification</td>
+          <td>May 19, 2026</td>
+        </tr>
+        <tr>
+          <td>Camera-ready due</td>
+          <td>May 26, 2026</td>
+        </tr>
+        <tr>
+          <td>Workshop date</td>
+          <td>June 29, 2026</td>
+        </tr>
+      </table>
+    </section>
+
+    <section id="submission" class="alt">
+      <h2>Submission Instructions</h2>
+      <p>
+        Submissions must be original, unpublished work and not under consideration at another conference or journal. Submitted papers must be at most six pages long, including all figures, tables, references, and appendices in two-column 10pt IEEE format. Papers must not include author names and affiliations for double-blind peer reviewing by the PC. Authors of accepted submissions are expected to present and discuss their work at the workshop.
+      </p>
+
+      <div class="submission-note">
+        Please submit your paper via
+        <a href="https://gcni26.hotcrp.com" target="_blank" rel="noopener noreferrer">gcni26.hotcrp.com</a>.
+      </div>
+    </section>
+
+    <section id="organizers">
+      <h2>Organizers</h2>
+
+      <div class="organizer-block">
+        <h3>Program Chairs</h3>
+        <ul class="chair-bullet-list">
+          <li><strong>Yuxiang Hu</strong>, National Key Laboratory of Advanced Communication Networks of China</li>
+          <li><strong>Zehua Guo</strong>, Beijing Institute of Technology</li>
+        </ul>
+      </div>
+
+      <div class="organizer-block">
+        <h3>Technical Program Committee</h3>
+        <div class="tpc-box">
+          To be announced.
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p><strong>IWQOS 2026 Workshop on GCNI</strong></p>
+      <p>Generative Cloud-Network Infrastructure · Call for Papers</p>
+    </div>
+  </footer>
+
+</body>
+</html>
