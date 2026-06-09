@@ -52,7 +52,7 @@
     a:hover {
       color: var(--link-hover);
       text-decoration: underline;
-      text-decoration-skip-ink: none; 
+      text-decoration-skip-ink: none;
     }
 
     .container {
@@ -80,13 +80,6 @@
       margin-bottom: 8px;
     }
 
-    .header-series {
-      font-size: 0.98rem;
-      font-weight: 700;
-      color: #f4f8fc;
-      margin-bottom: 6px;
-    }
-
     header h1 {
       margin: 0 0 10px;
       font-size: 2.08rem;
@@ -95,37 +88,6 @@
       letter-spacing: -0.01em;
       color: #ffffff;
       max-width: 920px;
-    }
-
-    .header-subtitle {
-      max-width: 900px;
-      font-size: 0.99rem;
-      line-height: 1.58;
-      color: #edf4fa;
-    }
-
-    nav {
-      background: var(--nav-bg);
-      border-bottom: 1px solid rgba(255,255,255,0.14);
-    }
-
-    .nav-inner {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      padding: 10px 0;
-    }
-
-    nav a {
-      color: #ffffff;
-      font-weight: 600;
-      font-size: 0.94rem;
-      letter-spacing: 0.1px;
-    }
-
-    nav a:hover {
-      text-decoration: none;
-      opacity: 0.92;
     }
 
     main {
@@ -260,31 +222,114 @@
       font-weight: 700;
     }
 
-    .tpc-box {
-      margin-top: 8px;
-      padding: 12px 14px;
-      background: #fbfcfe;
-      border: 1px solid #dbe5ee;
-      border-radius: 6px;
+    .schedule-note {
+      margin: 2px 0 18px;
+      padding: 12px 15px;
+      background: #eef4f8;
+      border-left: 4px solid #7898b2;
+      border-radius: 3px;
       color: var(--text-soft);
       font-size: 0.96rem;
       line-height: 1.56;
     }
 
-    footer {
-      background: #dde7ef;
-      border-top: 1px solid #ccd9e4;
-      color: #476073;
-      text-align: center;
-      padding: 18px 0 22px;
-      font-size: 0.93rem;
+    .schedule-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      overflow: hidden;
+      border: 1px solid #cfdbe6;
+      border-radius: 8px;
+      background: #ffffff;
+      box-shadow: 0 1px 2px rgba(20, 34, 48, 0.04);
     }
 
-    footer p {
-      margin: 4px 0;
-      text-align: center;
-      color: #476073;
-      line-height: 1.5;
+    .schedule-table th {
+      background: #e7eef5;
+      color: var(--heading);
+      text-align: left;
+      padding: 12px 14px;
+      font-size: 0.98rem;
+      font-weight: 700;
+      border-bottom: 1px solid #cfdbe6;
+    }
+
+    .schedule-table th:first-child {
+      width: 175px;
+      border-right: 1px solid #cfdbe6;
+    }
+
+    .schedule-table td {
+      padding: 13px 14px;
+      vertical-align: top;
+      color: var(--text);
+      font-size: 0.97rem;
+      line-height: 1.58;
+      border-bottom: 1px solid #dbe5ee;
+    }
+
+    .schedule-table td:first-child {
+      width: 175px;
+      color: var(--heading);
+      font-weight: 700;
+      white-space: nowrap;
+      border-right: 1px solid #dbe5ee;
+      background: #f6f9fc;
+    }
+
+    .schedule-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .schedule-session-row td {
+      background: #edf4fa;
+    }
+
+    .schedule-session-row td:first-child {
+      background: #e5eef7;
+    }
+
+    .session-heading {
+      display: block;
+      color: var(--heading);
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .paper-list {
+      margin: 7px 0 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .paper-list li {
+      position: relative;
+      margin: 0 0 8px 0;
+      padding-left: 18px;
+      color: var(--text);
+      font-size: 0.97rem;
+      line-height: 1.58;
+    }
+
+    .paper-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .paper-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0.02em;
+      color: var(--heading);
+      font-size: 1.15rem;
+      line-height: 1;
+    }
+
+    .keynote-detail {
+      margin-top: 6px;
+      color: var(--text-soft);
+      font-size: 0.96rem;
     }
 
     @media (max-width: 640px) {
@@ -294,14 +339,6 @@
 
       header h1 {
         font-size: 1.7rem;
-      }
-
-      .header-subtitle {
-        font-size: 0.96rem;
-      }
-
-      .nav-inner {
-        gap: 14px;
       }
 
       section {
@@ -318,6 +355,41 @@
         display: block;
         padding: 8px 0;
       }
+
+      .schedule-table,
+      .schedule-table thead,
+      .schedule-table tbody,
+      .schedule-table th,
+      .schedule-table td,
+      .schedule-table tr {
+        display: block;
+      }
+
+      .schedule-table thead {
+        display: none;
+      }
+
+      .schedule-table tr {
+        border-bottom: 1px solid #dbe5ee;
+      }
+
+      .schedule-table tr:last-child {
+        border-bottom: none;
+      }
+
+      .schedule-table td {
+        border-bottom: none;
+        border-right: none;
+        padding: 8px 12px;
+      }
+
+      .schedule-table td:first-child {
+        width: 100%;
+        border-right: none;
+        background: #e7eef5;
+        padding-top: 10px;
+        padding-bottom: 8px;
+      }
     }
   </style>
 </head>
@@ -329,7 +401,6 @@
       <h1>IWQoS 2026 Workshop on Generative Cloud-Network Infrastructure (GCNI)</h1>
     </div>
   </header>
-
 
   <main class="container">
 
@@ -413,7 +484,7 @@
 
     <section id="organizers">
       <h2>Organizers</h2>
-    
+
       <div class="organizer-block">
         <h3>Program Chairs</h3>
         <ul class="chair-bullet-list">
@@ -421,12 +492,12 @@
           <li><strong>Zehua Guo</strong>, Beijing Institute of Technology</li>
         </ul>
       </div>
-    
+
       <div class="organizer-block">
         <h3>Technical Program Committee</h3>
         <ul class="chair-bullet-list">
           <li><strong>Sen Liu</strong>, Fudan University</li>
-          <li><strong>Bo Chen</strong>, National Digital Switching System Engineering and Technological R&D Center</li>
+          <li><strong>Bo Chen</strong>, National Digital Switching System Engineering and Technological R&amp;D Center</li>
           <li><strong>Rongfei Zeng</strong>, Northeastern University</li>
           <li><strong>Le Tian</strong>, Henan Key Laboratory of Endogenous Security in Cyberspace</li>
           <li><strong>Minghao Ye</strong>, ByteDance</li>
@@ -437,6 +508,62 @@
           <li><strong>Ying Wan</strong>, Southeast University</li>
         </ul>
       </div>
+    </section>
+
+    <section id="schedule" class="alt">
+      <h2>Schedule</h2>
+
+      <div class="schedule-note">
+        Each paper presentation will get 15 minutes, including up to 2 minutes of Q&amp;A time.
+      </div>
+
+      <table class="schedule-table">
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Program</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>09:10 &ndash; 09:40</td>
+            <td>
+              <strong>Keynote Talk</strong>
+            </td>
+          </tr>
+
+          <tr class="schedule-session-row">
+            <td>09:40 &ndash; 10:40</td>
+            <td>
+              <span class="session-heading">Session 1: Cloud and Edge Networks</span>
+              <ul class="paper-list">
+                <li>Dynamic Malicious Encrypted Traffic Detection via Temporal Knowledge Graph in Cloud-Edge Networks</li>
+                <li>MINIQ: Minimizing Tail Latency for Cloud SFCs with Queuing-aware Execution Planning</li>
+                <li>Toward Communication-Sensing Integrated Cloud-Network Monitoring: Real-Time Vibration Event Recognition on Underground Optical Cables</li>
+              </ul>
+            </td>
+          </tr>
+
+          <tr>
+            <td>10:40 &ndash; 10:50</td>
+            <td>
+              <strong>Break</strong>
+            </td>
+          </tr>
+
+          <tr class="schedule-session-row">
+            <td>10:50 &ndash; 11:50</td>
+            <td>
+              <span class="session-heading">Session 2: Machine Learning Model Training</span>
+              <ul class="paper-list">
+                <li>CEINR: Critical Element-aware In-Network Recovery for Distributed Machine Learning</li>
+                <li>VerbSight: Proactive Traffic Demand Forecasting for RDMA-based Generative Model Training Clusters</li>
+                <li>Critical Layer-aware Distributed Machine Learning</li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </section>
 
   </main>
