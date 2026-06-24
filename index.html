@@ -245,7 +245,7 @@
     }
 
     .schedule-table th {
-      background: #f3f6f9;
+      background: #e7eef5;
       color: var(--heading);
       text-align: left;
       padding: 13px 16px;
@@ -265,7 +265,6 @@
       color: var(--text);
       font-size: 0.97rem;
       line-height: 1.58;
-      background: #ffffff;
       border-bottom: 1px solid #e2eaf1;
     }
 
@@ -275,23 +274,26 @@
       font-weight: 700;
       white-space: nowrap;
       border-right: 1px solid #e2eaf1;
+    }
+
+    .schedule-table tbody tr:nth-child(odd) td {
+      background: #ffffff;
+    }
+
+    .schedule-table tbody tr:nth-child(odd) td:first-child {
       background: #f8fafc;
+    }
+
+    .schedule-table tbody tr:nth-child(even) td {
+      background: #f1f6fa;
+    }
+
+    .schedule-table tbody tr:nth-child(even) td:first-child {
+      background: #e6f0f7;
     }
 
     .schedule-table tr:last-child td {
       border-bottom: none;
-    }
-
-    .schedule-session-row td {
-      background: #ffffff;
-    }
-
-    .schedule-break-row td {
-      background: #f7f9fb;
-    }
-
-    .schedule-break-row td:first-child {
-      background: #f1f5f8;
     }
 
     .session-heading {
@@ -391,9 +393,16 @@
       .schedule-table td:first-child {
         width: 100%;
         border-right: none;
-        background: #f1f5f8;
         padding-top: 10px;
         padding-bottom: 8px;
+      }
+
+      .schedule-table tbody tr:nth-child(odd) td:first-child {
+        background: #f1f5f8;
+      }
+
+      .schedule-table tbody tr:nth-child(even) td:first-child {
+        background: #e6f0f7;
       }
     }
   </style>
@@ -530,6 +539,13 @@
           </tr>
         </thead>
         <tbody>
+          <tr>
+            <td>09:00 &ndash; 09:10</td>
+            <td>
+              <strong>Opening Remarks</strong>
+            </td>
+          </tr>
+
           <tr class="schedule-session-row">
             <td>09:10 &ndash; 09:55</td>
             <td>
@@ -558,6 +574,13 @@
                 <li>VerbSight: Proactive Traffic Demand Forecasting for RDMA-based Generative Model Training Clusters</li>
                 <li>Critical Layer-aware Distributed Machine Learning</li>
               </ul>
+            </td>
+          </tr>
+
+          <tr>
+            <td>11:00 &ndash; 11:10</td>
+            <td>
+              <strong>Closing Remarks</strong>
             </td>
           </tr>
         </tbody>
